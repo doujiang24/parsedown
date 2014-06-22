@@ -1,0 +1,345 @@
+/* reset css */
+
+*:focus {
+    outline: none;
+}
+
+a {
+	color: #159;
+	outline: none;
+	text-decoration: none;
+}
+
+a img {
+	border: none;
+}
+
+abbr {
+	border-bottom: 1px solid #ddd;
+	cursor: help;
+	padding: 2px 3px;
+}
+
+body {
+	background: #ddd;
+	color: #333;
+	font-family: "Ubuntu", "lucida grande", tahoma, verdana, arial, sans-serif;
+	font-size: 18px;
+    font-weight: 400;
+	height: 100%;
+	line-height: 24px;
+	margin: 0;
+	padding: 0;
+}
+
+blockquote {
+	background: #eee;
+	margin: 0 0 10px 0;
+	padding: 10px 10px 1px 10px;
+}
+
+button {
+	background: none;
+	border: 0;
+	color: #159;
+	cursor: pointer;
+	font-family: "Ubuntu", "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 18px;
+	line-height: 20px;
+	margin: 0;
+	padding: 0;
+}
+
+code {
+    color: #333;
+    font-family: "Source Code Pro", "Source Code Pro", Monaco, Andale Mono, Consolas, monospace;
+    font-size: 16px;
+}
+
+form {
+	margin: 0;
+	padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: "Ubuntu", "lucida grande", tahoma, verdana, arial, sans-serif;
+	font-weight: normal;
+	margin: 20px 0;
+}
+
+html {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	overflow-y: scroll;
+}
+
+img {
+	outline: none;
+}
+
+input {
+	font-family: "Ubuntu", "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 18px;
+	line-height: 20px;
+	margin: 0;
+}
+
+object {
+	outline: none;
+}
+
+p {
+	margin-top: 0;
+	margin-bottom: 10px;
+}
+
+select {
+    font-family: "Ubuntu", "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 18px;
+	/* Makes for the same height as <input>. */
+	height: 40px;
+	margin: 0;
+}
+
+table {
+	border-spacing: 0;
+}
+
+textarea {
+	background: #fff;
+    font-family: "Ubuntu", "lucida grande", tahoma, verdana, arial, sans-serif;
+    font-size: 18px;
+	line-height: 20px;
+	margin: 0;
+	padding: 9px;
+	width: 280px;
+}
+
+ul {
+	list-style-type: square;
+}
+
+/* reset css end */
+
+
+/* project css */
+
+a {
+    border-bottom: 1px dashed #bbb;
+    color: #333;
+    padding-bottom: 5px;
+}
+
+body {
+    width:960px; margin-left:auto; margin-right:auto;
+    background: #fff url("./noisy-texture-100x100-o2-d10-c-ffffff-t0.png");
+}
+
+h1, h2, h3, h4, h5, h6 {
+    margin: 0 0 5px 0;
+    background-color: #DFDFDF;
+    padding:3px 5px;
+}
+
+div.odd {
+    background: #eee url(./noisy-texture-100x100-o2-d10-c-eeeeee-t0.png);
+}
+
+pre {
+    margin: 0;
+    white-space: -moz-pre-wrap; /* Mozilla, supported since 1999 */
+    white-space: -pre-wrap; /* Opera */
+    white-space: -o-pre-wrap; /* Opera */
+    white-space: pre-wrap; /* CSS3 - Text module (Candidate Recommendation) http://www.w3.org/TR/css3-text/#white-space */
+    word-wrap: break-word; /* IE 5.5+ */
+}
+
+span.highlight {
+    background: #bdb;
+    border-radius: 2px;
+    color: #333;
+    padding: 2px 5px;
+}
+
+/*
+ *
+ * td
+ *
+ */
+
+div.td {
+    float: left;
+    width: 35%;
+}
+
+div.td div {
+    padding: 20px;
+}
+
+/*
+ *
+ * head
+ *
+ */
+
+div.head {
+    background: #eee url("./noisy-texture-100x100-o2-d10-c-eeeeee-t0.png");
+    border-bottom: 1px solid #ddd;
+}
+
+/*
+ *
+ * nav
+ *
+ */
+
+div.nav {
+    background: #333 url("./noisy-texture-100x100-o2-d10-c-333333-t0.png");
+    color: #fff;
+    padding: 10px 20px 0 20px;
+}
+
+div.nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+div.nav li {
+    background: #444 url("./noisy-texture-100x100-o2-d10-c-444444-t0.png");
+    border: 1px solid #2f2f2f;
+    border-bottom-width: 0;
+    float: left;
+    margin-right: 10px;
+    padding: 10px 20px;
+}
+
+div.nav li a {
+    border: none;
+    color: #9bd;
+    padding: 0;
+}
+
+div.nav li.active {
+    background: #eee url("./noisy-texture-100x100-o2-d10-c-eeeeee-t0.png");
+    border-right: 1px solid #222;
+    color: #333;
+}
+
+div.nav li.active a {
+    color: #333;
+}
+
+div.nav li.first {
+    background: none;
+    border: none;
+    padding: 10px 10px 10px 0
+}
+
+div.nav li.external {
+    background: none;
+    border: none;
+}
+
+div.nav li.external a {
+    color: #db9;
+}
+
+/*
+ *
+ * output
+ *
+ */
+
+a {
+    border: none;
+    color: #59b;
+    padding: 0;
+}
+
+a code {
+    color: #59b;
+}
+
+blockquote {
+    background: none;
+    border-left: 3px solid #777;
+    color: #777;
+    padding: 0 0 0 10px;
+}
+
+code {
+    background: #eee;
+    border: 1px solid #ddd;
+    padding: 0 5px 1px 5px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: normal;
+    margin: 20px 0;
+}
+
+hr {
+    background: transparent url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAYAAAAECAYAAACtBE5DAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6OENDRjNBN0E2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6OENDRjNBN0I2NTZBMTFFMEI3QjRBODM4NzJDMjlGNDgiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDo4Q0NGM0E3ODY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDo4Q0NGM0E3OTY1NkExMUUwQjdCNEE4Mzg3MkMyOUY0OCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PqqezsUAAAAfSURBVHjaYmRABcYwBiM2QSA4y4hNEKYDQxAEAAIMAHNGAzhkPOlYAAAAAElFTkSuQmCC") repeat-x 0 0;
+    border: 0 none;
+    color: #ccc;
+    height: 4px;
+    padding: 0;
+    margin: 15px 0;
+}
+
+div.footnotes {
+    font-size: 14px;
+}
+
+pre {
+    background: #eee;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    color: #555;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+pre code {
+    background: none;
+    border: none;
+    padding: 0;
+
+}
+
+table {
+    border-width: 1px 0 0 1px;
+    border-color: #bbb;
+    border-style: solid;
+}
+
+table td, table th {
+    border-width: 0 1px 1px 0;
+    border-color: #bbb;
+    border-style: solid;
+    padding: 10px;
+}
+
+/*
+ *
+ * prettify
+ *
+ */
+
+span.tag {
+    color: #b19;
+}
+
+span.atn {
+    color: #975;
+}
+
+span.pun {
+    color: #b19;
+}
+
+span.atv {
+    color: #559;
+}
