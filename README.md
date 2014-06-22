@@ -29,6 +29,9 @@ echo $Parsedown->text('Hello _Parsedown_!'); # prints: <p>Hello <em>Parsedown</e
 
 More examples in [the wiki](https://github.com/erusev/parsedown/wiki/Usage).
 
+### Api Doc Example
+[weibo openapi](http://uncledou.org/markdown/test.html).
+
 ### Questions
 
 **How does Parsedown work?**<br/>
