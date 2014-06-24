@@ -875,7 +875,14 @@ class Parsedown
 
     protected function element(array $Element)
     {
-        $markup = '<'.$Element['name'];
+        $markup = "";
+
+        if (in_array($Element['name'], array_keys($this->highlight_lables))) {
+            $anchor_name = $this->anchor($Element['name'], $Element['text']);
+            $markup .= '<a name="' . $anchor_name . '"></a>';
+        }
+
+        $markup .= '<'.$Element['name'];
 
         if (isset($Element['attributes']))
         {
@@ -1399,4 +1406,28 @@ class Parsedown
                    'wbr', 'span',
                           'time',
     );
+
+    protected $highlight_lables = array(
+        'h1' => '',
+        'h2' => '',
+        'h3' => '',
+        'h4' => '',
+        'h5' => '',
+        'h6' => '',
+    );
+
+    protected function anchor($hl, $text) {
+        $this->highlight_lables[$hl] = $text;
+
+        $names = array();
+        foreach ($this->highlight_lables as $h => $text) {
+            $names[] = $h . $text;
+
+            if ($h == $hl) {
+                break;
+            }
+        }
+
+        return implode(":", $names);
+    }
 }
