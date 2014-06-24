@@ -258,7 +258,7 @@ class Parsedown
 
         # ~
 
-        return $markup;
+        return $this->dirs_output() . $markup;
     }
 
     #
@@ -880,6 +880,12 @@ class Parsedown
         if (in_array($Element['name'], array_keys($this->highlight_lables))) {
             $anchor_name = $this->anchor($Element['name'], $Element['text']);
             $markup .= '<a name="' . $anchor_name . '"></a>';
+
+            $this->dirs[] = array(
+                'name' => $Element['name'],
+                'text' => $Element['text'],
+                'anchor' => $anchor_name,
+            );
         }
 
         $markup .= '<'.$Element['name'];
@@ -1428,6 +1434,22 @@ class Parsedown
             }
         }
 
-        return implode(":", $names);
+        return urlencode(implode(":", $names));
+    }
+
+    protected $dirs = array();
+
+    protected function dirs_output() {
+        $hspaces = array_flip(array_keys($this->highlight_lables));
+
+        $html = array('<ul>');
+
+        foreach ($this->dirs as $hl) {
+            $html[] = "<li>" . str_repeat("&nbsp", $hspaces[$hl['name']] * 8) . "<a href=\"#{$hl['anchor']}\">{$hl['text']}</a></li>";
+        }
+
+        $html[] = '</ul>';
+
+        return implode('', $html);
     }
 }
