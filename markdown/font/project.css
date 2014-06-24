@@ -322,6 +322,8 @@ table td, table th {
     padding: 10px;
 }
 
+table tr:nth-child(odd){background:#DDF0FF;}
+
 /*
  *
  * prettify
