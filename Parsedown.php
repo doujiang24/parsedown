@@ -258,7 +258,7 @@ class Parsedown
 
         # ~
 
-        return $markup;
+        return $this->dirs_output() . $markup;
     }
 
     #
@@ -875,7 +875,20 @@ class Parsedown
 
     protected function element(array $Element)
     {
-        $markup = '<'.$Element['name'];
+        $markup = "";
+
+        if (in_array($Element['name'], array_keys($this->highlight_lables))) {
+            $anchor_name = $this->anchor($Element['name'], $Element['text']);
+            $markup .= '<a name="' . $anchor_name . '"></a>';
+
+            $this->dirs[] = array(
+                'name' => $Element['name'],
+                'text' => $Element['text'],
+                'anchor' => $anchor_name,
+            );
+        }
+
+        $markup .= '<'.$Element['name'];
 
         if (isset($Element['attributes']))
         {
@@ -1399,4 +1412,44 @@ class Parsedown
                    'wbr', 'span',
                           'time',
     );
+
+    protected $highlight_lables = array(
+        'h1' => '',
+        'h2' => '',
+        'h3' => '',
+        'h4' => '',
+        'h5' => '',
+        'h6' => '',
+    );
+
+    protected function anchor($hl, $text) {
+        $this->highlight_lables[$hl] = $text;
+
+        $names = array();
+        foreach ($this->highlight_lables as $h => $text) {
+            $names[] = $h . $text;
+
+            if ($h == $hl) {
+                break;
+            }
+        }
+
+        return urlencode(implode(":", $names));
+    }
+
+    protected $dirs = array();
+
+    protected function dirs_output() {
+        $hspaces = array_flip(array_keys($this->highlight_lables));
+
+        $html = array('<ul>');
+
+        foreach ($this->dirs as $hl) {
+            $html[] = "<li>" . str_repeat("&nbsp", $hspaces[$hl['name']] * 8) . "<a href=\"#{$hl['anchor']}\">{$hl['text']}</a></li>";
+        }
+
+        $html[] = '</ul>';
+
+        return implode('', $html);
+    }
 }
