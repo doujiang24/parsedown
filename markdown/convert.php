@@ -14,7 +14,7 @@ $input = $argv[1];
 
 $output = substr($input, 0, strrpos($input, ".")) . ".html";
 
-$content = file_get_contents($input);
+$content = file_get_contents("{$input}");
 
 $html_header = <<<EOF
 <!DOCTYPE html>
@@ -23,6 +23,8 @@ $html_header = <<<EOF
         <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
         <link href="http://uncledou.org/markdown/font/font.css" rel="stylesheet" type="text/css" />
         <link href="http://uncledou.org/markdown/font/project.css" rel="stylesheet" type="text/css" />
+        <script src="http://uncledou.org/markdown/js/jquery.js"></script>
+        <script src="http://uncledou.org/markdown/js/markdown.js"></script>
     </head>
 
 EOF;

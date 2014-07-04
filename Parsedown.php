@@ -1442,10 +1442,10 @@ class Parsedown
     protected function dirs_output() {
         $hspaces = array_flip(array_keys($this->highlight_lables));
 
-        $html = array('<ul>');
+        $html = array('<ul id="top_directory">');
 
         foreach ($this->dirs as $hl) {
-            $html[] = "<li>" . str_repeat("&nbsp", $hspaces[$hl['name']] * 8) . "<a href=\"#{$hl['anchor']}\">{$hl['text']}</a></li>";
+            $html[] = "<li _list_level='{$hspaces[$hl['name']]}'>" . str_repeat("&nbsp", $hspaces[$hl['name']] * 8) . "<a href=\"#{$hl['anchor']}\">{$hl['text']}</a></li>";
         }
 
         $html[] = '</ul>';
