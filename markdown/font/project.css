@@ -345,3 +345,6 @@ span.pun {
 span.atv {
     color: #559;
 }
+
+/* fold */
+.fold_button { color:#60BE82; font-size:12px; margin-left:20px; }
