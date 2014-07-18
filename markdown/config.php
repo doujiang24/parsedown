@@ -1,20 +1,20 @@
 <?php
 
+require("svn.config.php");
+
+/*
+ * svn config format:
+ *
+
 $markdown_files = array(
     array(
-        'svn'   => 'http://192.168.18.171/svn/mobileservice4.0/doc/apidoc/api.markdown',
-        'title' => 'mobileservice 4.0 接口文档',
-    ),
-    array(
-        'svn'   => 'http://192.168.18.171/svn/mobileservice4.0/doc/apidoc/upload.markdown',
-        'title' => '客户端上报数据接口文档',
-    ),
-    array(
-        'svn'   => 'http://192.168.18.171/svn/mobileservice4.0/doc/apidoc/secure.markdown',
-        'title' => '接口安全校验方式',
+        'svn'                   => 'svn_url_for_markdown_file',
+        'title'                 => 'filename_in_the_directory',
+        'directory_fold_level'  => 'int value (default 2)',
     ),
 );
 
+ */
 
 function download($svn, $title) {
     $svnfile = substr($svn, strrpos($svn, "/") + 1);
@@ -26,10 +26,10 @@ function download($svn, $title) {
 }
 
 
-function convert($title) {
+function convert($title, $level) {
     $dstfile = str_replace(" ", "_", $title) . ".markdown";
     return "
-        php convert.php 'svn/{$dstfile}'
+        php convert.php 'svn/{$dstfile}' {$level}
     ";
 }
 
@@ -53,7 +53,10 @@ if ($argv[1] == "convert") {
     echo "cd ..";
 
     foreach ($markdown_files as $info) {
-        echo convert($info['title']);
+        $level = isset($info['directory_fold_level']) ?
+            (int)($info['directory_fold_level']) : 2;
+
+        echo convert($info['title'], $level);
     }
 
 } elseif ($argv[1] == "directory") {

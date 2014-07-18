@@ -5,7 +5,7 @@ require("../Parsedown.php");
 $Parsedown = new Parsedown();
 
 
-if ($argc != 2) {
+if ($argc < 2) {
     usage();
     exit();
 }
@@ -26,8 +26,11 @@ $html_header = <<<EOF
         <script src="http://uncledou.org/markdown/js/jquery.js"></script>
         <script src="http://uncledou.org/markdown/js/markdown.js"></script>
     </head>
-
 EOF;
+
+if (isset($argv[2])) {
+    $html_header .= "<script> var directory_fold_level = {$argv[2]}; </script>";
+}
 
 file_put_contents($output, $html_header . $Parsedown->text($content));
 
