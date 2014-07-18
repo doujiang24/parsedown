@@ -58,5 +58,6 @@ var Directory = {
 
 
 $(function () {
-    Directory.fold(2);
+    var level = directory_fold_level ? directory_fold_level : 2;
+    Directory.fold(level);
 });
