@@ -10,7 +10,7 @@ var Directory = {
         }
 
         var id = "_directory_fold_" + Directory.id++;
-        var button = "<a class='fold_button' href='#' id='" + id + "'>收起</a>";
+        var button = "<a class='fold_button' href='#' id='" + id + "'>--</a>";
 
         $(li).append(button);
 
@@ -26,8 +26,8 @@ var Directory = {
         var level = $(li).attr("_list_level");
         var stats = $(li).find("a.fold_button").html();
 
-        var hide = $(li).find("a.fold_button").html() == "展开" ? true : false;
-        $(li).find("a.fold_button").html(hide ? "收起" : "展开");
+        var hide = $(li).find("a.fold_button").html() == "++" ? true : false;
+        $(li).find("a.fold_button").html(hide ? "--" : "++");
 
         var goon = true;
 
