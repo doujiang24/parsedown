@@ -111,7 +111,7 @@ class Parsedown
     # Blocks
     #
 
-    private function lines(array $lines)
+    private function lines(array $lines, $need_directory=true)
     {
         $CurrentBlock = null;
 
@@ -258,7 +258,7 @@ class Parsedown
 
         # ~
 
-        return $this->dirs_output() . $markup;
+        return $need_directory ? $this->dirs_output() . $markup : $markup;
     }
 
     #
@@ -1327,7 +1327,7 @@ class Parsedown
 
     protected function li($lines)
     {
-        $markup = $this->lines($lines);
+        $markup = $this->lines($lines, false);
 
         $trimmedMarkup = trim($markup);
 
