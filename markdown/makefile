@@ -4,7 +4,8 @@ all: directory html
 
 
 html:
-	php config.php convert > ./convert.sh
+	php config.php convert 	> 	./convert.sh
+	php config.php attach	>> 	./convert.sh
 	/bin/sh convert.sh
 
 directory:

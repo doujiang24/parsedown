@@ -14,15 +14,26 @@ $markdown_files = array(
     ),
 );
 
+$attach_files = array(
+    'svn_url_for_attach_file',
+);
+
  */
 
-function download($svn, $title) {
-    $svnfile = substr($svn, strrpos($svn, "/") + 1);
-    $dstfile = str_replace(" ", "_", $title) . ".markdown";
-    return "
-        svn export {$svn}
-        mv {$svnfile} {$dstfile}
-    ";
+function download($svn, $title=NULL) {
+    if ($title) {
+        $svnfile = substr($svn, strrpos($svn, "/") + 1);
+        $dstfile = str_replace(" ", "_", $title) . ".markdown";
+        return "
+            svn export {$svn}
+            mv {$svnfile} {$dstfile}
+        ";
+
+    } else {
+        return "
+            svn export {$svn}
+        ";
+    }
 }
 
 
@@ -67,4 +78,11 @@ if ($argv[1] == "convert") {
         echo direct_list($info['title']);
     }
 
+} elseif ($argv[1] == "attach") {
+
+    echo "cd svn/doc";
+
+    foreach ($attach_files as $url) {
+        echo download($url);
+    }
 }
